@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Ticket</title>
+    <style>
+        /* Inline styles for PDF rendering */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9fafb; /* Light grayish background */
+            padding: 10px;
+        }
+
+        .ticket-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .ticket-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .ticket-header h4 {
+            font-size: 16px;
+            color: #4A5568; /* Darker gray */
+        }
+
+        .ticket-header h3 {
+            font-size: 18px;
+            color: #ffffff;
+            background-color: #5A67D8; /* Purple-blue shade */
+            padding: 8px 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .ticket-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 600;
+            color: #2D3748; /* Dark gray for title */
+            margin-bottom: 20px;
+        }
+
+        .guest-details, .event-details {
+            margin-bottom: 30px;
+        }
+
+        .guest-details h3, .event-details h3 {
+            font-size: 18px;
+            color: #38B2AC; /* Teal for highlighting section titles */
+            margin-bottom: 10px;
+        }
+
+        .guest-details table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .guest-details th, .guest-details td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #E2E8F0; /* Light border color */
+        }
+
+        .guest-details th {
+            background-color: #F7FAFC; /* Soft background for header */
+            font-weight: 600;
+            color: #4A5568; /* Slightly darker gray for headers */
+        }
+
+        .event-details p {
+            font-size: 14px;
+            color: #4B5563; /* Darker gray text for content */
+            margin: 5px 0;
+        }
+
+        .footer {
+            text-align: center;
+            color: #4A5568;
+            font-size: 16px;
+            margin-top: 30px;
+        }
+
+        /* Enhancing Button and Callout */
+        .footer p {
+            color: #5A67D8; /* Highlighted text color matching the header */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ticket-container">
+
+        <!-- Header Section -->
+        <div class="ticket-header">
+            <h4 th:text="'Ticket no: ' + ${bookingDetails.id}"></h4>
+            <h3>Booked Via moments</h3>
+        </div>
+
+        <div class="ticket-title" th:text="${bookingDetails.event.name}"></div>
+
+        <!-- Guest Details Section -->
+        <div class="guest-details">
+            <h3>Guest Details</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Guest Data -->
+                    <th:block th:each="guest : ${bookingDetails.guestList}">
+                        <tr>
+                            <td th:text="${guest.fname} + ' ' + ${guest.lname}"></td>
+                        </tr>
+                    </th:block>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Event Location and Venue Section -->
+        <div class="event-details">
+            <h3>Event Details</h3>
+            <p><strong>Venue:</strong> <span th:text="${bookingDetails.event.address.venue}"></span></p>
+            <p><strong>Location:</strong> <span th:text="${bookingDetails.event.address.city} + ', ' + ${bookingDetails.event.address.pincode}"></span></p>
+            <p><strong>Date:</strong> <span th:text="${bookingDetails.event.dateTime}"></span></p>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>Thank you for booking with Moments! We hope you have an amazing time at the event!</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
