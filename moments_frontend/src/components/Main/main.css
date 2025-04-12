@@ -1,0 +1,21 @@
+/* Main.css */
+.main-container {
+  
+  }
+  
+  .event-cards-grid {
+    display: flex;
+    gap: 3rem;
+  }
+  .left-arr{
+    bottom: 50%;
+    left: 95%;
+  }
+  .right-arr{
+    bottom: 50%;
+    right: 100%;
+    position: absolute;
+  
+
+  }
+  

@@ -1,0 +1,49 @@
+/* gallery.css */
+
+/* Apply rounded corners to the main images */
+.image-gallery-image {
+    border-radius: 15px !important;
+    /* Rounded corners for main images */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional: Add shadow for effect */
+}
+
+/* Apply rounded corners to thumbnails */
+.image-gallery-thumbnail img {
+    border-radius: 8px !important;
+
+}
+
+/* Custom arrow styles */
+.image-gallery-left-nav,
+.image-gallery-right-nav {
+    background-color: rgba(245, 67, 82, 0.914) !important;
+
+    color: white !important;
+
+    border-radius: 50% !important;
+
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-inline: 5%;
+    font-weight: bold;
+}
+
+/* Hover effect for arrows */
+.image-gallery-left-nav:hover,
+.image-gallery-right-nav:hover {
+    background-color: rgba(0, 0, 0, 0.405) !important;
+
+}
+
+/* Adjust the play button */
+.image-gallery-play-button {
+    display: none !important;
+
+}

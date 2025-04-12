@@ -1,0 +1,17 @@
+.spinner {
+    width: 30px; /* Increased size for better visibility */
+    height: 30px;
+    border: 5px solid rgba(151, 147, 147, 0.267); /* Light aqua border */
+    border-top: 5px solid rgba(0, 0, 0, 0.836); /* Highlighted top border */
+    border-radius: 50%; /* Circular shape */
+    animation: rotate 1s linear infinite; /* Correct animation shorthand */
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg); /* Start position */
+    }
+    100% {
+        transform: rotate(360deg); /* Full rotation */
+    }
+}
